@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Event - School Event Hub</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>School Event Hub</h1>
+
+    
+<nav>
+    <a href="index.html">Home</a>
+    <a href="past-events.html">Past Events</a>
+    <a href="events.html">Events</a>
+    <a href="my-registrations.html">My Events</a>
+    <a href="create-event.html">Create Event</a>
+    <a href="profile.html">My Profile</a>
+
+    <a href="notifications.html">
+        Notifications
+        <span id="notificationCount"></span>
+    </a>
+
+    <button id="logoutButton">Logout</button>
+</nav>
+
+</header>
+
+<main>
+
+    <section class="event-card" style="max-width:550px; margin:40px auto;">
+
+        <h2>Create a School Event</h2>
+
+        <p>Fill in the information below.</p>
+
+        <form id="eventForm">
+
+            <label for="eventName">Event Name</label>
+            <input
+                type="text"
+                id="eventName"
+                required
+                placeholder="Enter event name"
+            >
+
+            <br><br>
+
+            <label for="description">Description</label>
+            <textarea
+                id="description"
+                required
+                placeholder="Describe your event"
+            ></textarea>
+
+            <br><br>
+            
+<label for="category">Event Category</label>
+
+<select id="category" required>
+
+    <option value="Music">🎵 Music</option>
+    <option value="Science">🔬 Science</option>
+    <option value="Sports">🏆 Sports</option>
+    <option value="Arts">🎨 Arts</option>
+    <option value="Academic">🎓 Academic</option>
+    <option value="Social">👥 Social</option>
+    <option value="Technology">💻 Technology</option>
+    <option value="Health">🩺 Health</option>
+    <option value="Fundraising">💰 Fundraising</option>
+    <option value="Other" selected>📅 Other</option>
+
+</select>
+
+<label for="eventImage">Event Photo (Optional)</label>
+
+<input
+    type="file"
+    id="eventImage"
+    accept="image/jpeg,image/png,image/webp"
+>
+
+<p>Choose a JPG, PNG or WebP image. Maximum size: 5 MB.</p>
+
+<img
+    id="imagePreview"
+    alt="Event image preview"
+    hidden
+    style="width:100%; max-height:250px; object-fit:cover; border-radius:12px;"
+>
+
+
+            <label for="location">Location</label>
+            <input
+                type="text"
+                id="location"
+                required
+                placeholder="Enter event location"
+            >
+
+            <br><br>
+
+            <label for="eventDate">Event Date</label>
+
+<input
+    type="date"
+    id="eventDate"
+    required
+>
+
+            <br><br>
+
+            <label for="startTime">Start Time</label>
+            <input
+                type="time"
+                id="startTime"
+                required
+            >
+
+            <br><br>
+
+            <label for="endTime">End Time</label>
+            <input
+                type="time"
+                id="endTime"
+            >
+
+            <br><br>
+
+            <button type="submit" class="button">
+                Create Event
+            </button>
+
+        </form>
+
+        <p id="message"></p>
+
+    </section>
+
+</main>
+
+<footer>
+    <p>School Event Hub &copy; 2026</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase.js"></script>
+<script src="date-utils.js"></script>
+<script src="image-preview.js"></script>
+<script src="notification-count.js"></script>
+<script src="events-auth.js"></script>
+<script src="create-event.js"></script>
+
+</body>
+</html>

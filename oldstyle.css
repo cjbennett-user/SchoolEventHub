@@ -1,0 +1,233 @@
+
+/* GENERAL SETTINGS */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f1f5f9;
+    color: #1e293b;
+}
+
+/* NAVIGATION BAR */
+
+header {
+    background-color: #172554;
+    color: white;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 25px;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #93c5fd;
+}
+
+/* WELCOME SECTION */
+
+.welcome {
+    background: linear-gradient(135deg, #172554, #2563eb);
+    color: white;
+    text-align: center;
+    padding: 90px 20px;
+}
+
+.welcome h2 {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.welcome p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* BUTTONS */
+
+.button {
+    display: inline-block;
+    background-color: #f59e0b;
+    color: #172554;
+    padding: 14px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.button:hover {
+    background-color: #fbbf24;
+}
+
+/* ABOUT SECTION */
+
+.about {
+    text-align: center;
+    padding: 50px 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+.about h2 {
+    color: #172554;
+    font-size: 30px;
+}
+
+/* EVENTS SECTION */
+
+.events-container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.event-card {
+    background-color: white;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+.event-card h3 {
+    color: #1d4ed8;
+}
+
+.event-card p {
+    line-height: 1.6;
+}
+
+/* FOOTER */
+
+footer {
+    background-color: #172554;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+/* MOBILE DESIGN */
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .welcome h2 {
+        font-size: 30px;
+    }
+
+    nav {
+        justify-content: center;
+    }
+}
+
+/* FORM INPUTS */
+
+input,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 16px;
+    margin-top: 8px;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+}
+
+/* GENERAL BUTTONS */
+
+button {
+    background-color: #2563eb;
+    color: white;
+    padding: 11px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin: 5px;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #1d4ed8;
+}
+
+/* EVENT MANAGEMENT BUTTONS */
+
+.event-card button {
+    margin-top: 12px;
+}
+
+.event-card button:last-child {
+    background-color: #dc2626;
+}
+
+.event-card button:last-child:hover {
+    background-color: #b91c1c;
+}
+
+/* NOTIFICATION COUNTER */
+
+#notificationCount {
+    display: inline-block;
+    color: white;
+    background-color: #dc2626;
+    border-radius: 50px;
+    padding: 2px 7px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* NOTIFICATION CARDS */
+
+#notificationsList .event-card {
+    margin: 15px 0;
+    padding: 20px;
+    border-left: 5px solid #2563eb;
+}
+
+#notificationsList button {
+    margin-top: 10px;
+}
+
+/* UNREAD NOTIFICATIONS */
+
+#notificationsList strong {
+    display: block;
+    color: #2563eb;
+    margin-top: 10px;
+}

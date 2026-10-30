@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - School Event Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>School Event Hub</h1>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="events.html">Events</a>
+        <a href="login.html">Login</a>
+    </nav>
+</header>
+
+<main>
+
+    <section class="event-card" style="max-width:450px; margin:50px auto;">
+
+        <h2>Create Your Account</h2>
+
+        <form id="registerForm">
+
+            <label for="username">Username</label>
+            <input
+                type="text"
+                id="username"
+                required
+                minlength="3"
+                placeholder="Choose a username"
+            >
+
+            <br><br>
+
+            <label for="email">Email Address</label>
+            <input
+                type="email"
+                id="email"
+                required
+                placeholder="Enter your email"
+            >
+
+            <br><br>
+
+            <label for="password">Password</label>
+            <input
+                type="password"
+                id="password"
+                required
+                minlength="8"
+                placeholder="Create a password"
+            >
+
+            <br><br>
+
+            <button type="submit" class="button">
+                Create Account
+            </button>
+
+        </form>
+
+        <p id="message"></p>
+
+        <p>
+            Already have an account?
+            <a href="login.html">Login here</a>
+        </p>
+
+    </section>
+
+</main>
+
+<footer>
+    <p>School Event Hub &copy; 2026</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase.js"></script>
+<script src="register.js"></script>
+
+</body>
+</html>

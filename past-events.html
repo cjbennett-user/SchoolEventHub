@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Past Events - School Event Hub</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>School Event Hub</h1>
+
+    <nav>
+        <a href="index.html">Dashboard</a>
+        <a href="events.html">Upcoming Events</a>
+        <a href="past-events.html">Past Events</a>
+        <a href="my-registrations.html">My Events</a>
+        <a href="notifications.html">Notifications</a>
+        <a href="profile.html">My Profile</a>
+
+        <button id="logoutButton">Logout</button>
+    </nav>
+</header>
+
+<main class="past-events-container">
+
+    <section class="past-events-heading">
+        <h2>Past School Events</h2>
+
+        <p>
+            Explore events that have already taken place
+            at our school.
+        </p>
+    </section>
+
+    <section class="past-event-search">
+
+        <input
+            type="search"
+            id="searchInput"
+            placeholder="Search past events..."
+        >
+
+        <select id="categoryFilter">
+            <option value="">All Categories</option>
+            <option value="Music">🎵 Music</option>
+            <option value="Science">🔬 Science</option>
+            <option value="Sports">🏆 Sports</option>
+            <option value="Arts">🎨 Arts</option>
+            <option value="Academic">🎓 Academic</option>
+            <option value="Social">👥 Social</option>
+            <option value="Technology">💻 Technology</option>
+            <option value="Health">🩺 Health</option
+            <option value="Fundraising">💰 Fundraising</option>
+            <option value="Other">📅 Other</option>
+        </select>
+
+    </section>
+
+    <p id="eventsStatus">Loading past events...</p>
+
+    <section id="pastEventsList" class="events-grid">
+    </section>
+
+</main>
+
+<footer>
+    <p>School Event Hub &copy; 2026</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="supabase.js"></script>
+<script src="date-utils.js"></script>
+<script src="event-icons.js"></script>
+<script src="events-auth.js"></script>
+<script src="past-events.js"></script>
+
+</body>
+</html>

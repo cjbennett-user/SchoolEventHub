@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>School Event Hub</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+
+    <h1>School Event Hub</h1>
+
+    <nav>
+        <a href="index.html">Dashboard</a>
+        <a href="past-events.html">Past Events</a>
+        <a href="events.html">Events</a>
+        <a href="create-event.html">Create Event</a>
+        <a href="my-registrations.html">My Events</a>
+        <a href="profile.html">My Profile</a>
+        <a href="notifications.html">
+            Notifications
+            <span id="notificationCount"></span>
+        </a>
+        <button id="logoutButton">Logout</button>
+    </nav>
+
+</header>
+
+<main>
+
+    <!-- WELCOME SECTION -->
+
+    <section class="welcome-banner">
+
+        <h2 id="welcomeMessage">Welcome to School Event Hub!</h2>
+
+        <p>
+            Discover exciting activities, join school events,
+            meet new people and stay connected with everything
+            happening around your school.
+        </p>
+
+        <a href="events.html" class="button">
+            Explore Events
+        </a>
+
+    </section>
+
+
+    <!-- DASHBOARD STATISTICS -->
+
+    <section class="stats-grid">
+
+        <div class="stat-card">
+            <h3>Available Events</h3>
+            <div class="stat-number" id="totalEvents">0</div>
+        </div>
+
+        <div class="stat-card">
+            <h3>My Registrations</h3>
+            <div class="stat-number" id="myRegistrations">0</div>
+        </div>
+
+        <div class="stat-card">
+            <h3>Unread Notifications</h3>
+            <div class="stat-number" id="unreadNotifications">0</div>
+        </div>
+
+    </section>
+
+
+    <!-- QUICK LINKS -->
+
+    <section>
+
+        <h2>Quick Access</h2>
+
+        <div class="stats-grid">
+
+            <div class="stat-card">
+                <h3>Browse Events</h3>
+                <p>Find something exciting to attend.</p>
+                <a href="events.html" class="button">
+                    Browse
+                </a>
+            </div>
+
+            <div class="stat-card">
+                <h3>Create an Event</h3>
+                <p>Organise a new school activity.</p>
+                <a href="create-event.html" class="button">
+                    Create
+                </a>
+            </div>
+
+            <div class="stat-card">
+                <h3>My Notifications</h3>
+                <p>Keep up with your event updates.</p>
+                <a href="notifications.html" class="button">
+                    View Notifications
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- UPCOMING EVENTS -->
+
+    <section>
+
+        <h2>Upcoming Events</h2>
+
+        <p>Here are some of the events happening at your school.</p>
+
+        <div id="upcomingEvents" class="events-grid">
+
+            <p>Loading upcoming events...</p>
+
+        </div>
+
+        <a href="events.html" class="button">
+            View All Events
+        </a>
+
+    </section>
+
+</main>
+
+
+<footer>
+    <p>School Event Hub &copy; 2026</p>
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="supabase.js"></script>
+
+<script src="date-utils.js"></script>
+
+<script src="events-auth.js"></script>
+
+<script src="notification-count.js"></script>
+
+<script src="event-icons.js"></script>
+
+<script src="dashboard.js"></script>
+
+</body>
+</html>

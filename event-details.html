@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Details - School Event Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>School Event Hub</h1>
+
+    
+<nav>
+    <a href="index.html">Home</a>
+    <a href="past-events.html">Past Events</a>
+    <a href="events.html">Events</a>
+
+    <a href="create-event.html">Create Event</a>
+    <a href="my-registrations.html">My Events</a>
+    <a href="profile.html">My Profile</a>
+
+    <a href="notifications.html">
+        Notifications
+        <span id="notificationCount"></span>
+    </a>
+
+    <button id="logoutButton">Logout</button>
+</nav>
+<div id="registrationMessage"></div>
+</header>
+
+<main>
+    <section class="event-card" style="max-width:650px; margin:40px auto;">
+
+        <div id="eventDetails">
+            <p>Loading event...</p>
+        </div>
+
+        <p id="registrationMessage"></p>
+
+        <button id="registrationButton" hidden>
+            Register for Event
+        </button>
+
+        <button id="editButton" hidden>
+            Edit Event
+        </button>
+
+        <a href="events.html">Back to Events</a>
+
+    </section>
+</main>
+
+<footer>
+    <p>School Event Hub &copy; 2026</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase.js"></script>
+<script src="date-utils.js"></script>
+<script src="event-icons.js"></script>
+<script src="notification-count.js"></script>
+<script src="events-auth.js"></script>
+<script src="event-details.js"></script>
+
+</body>
+</html>

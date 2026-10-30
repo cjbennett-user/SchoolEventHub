@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>My Profile - School Event Hub</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>School Event Hub</h1>
+
+    <nav>
+        <a href="index.html">Dashboard</a>
+        <a href="past-events.html">Past Events</a>
+        <a href="events.html">Events</a>
+        <a href="my-registrations.html">My Events</a>
+        <a href="notifications.html">Notifications</a>
+        <a href="profile.html">My Profile</a>
+
+        <button id="logoutButton">Logout</button>
+    </nav>
+
+</header>
+
+<main class="profile-container">
+
+    <section class="profile-card">
+
+        <h2>My Student Profile</h2>
+
+        <img
+            id="profileImage"
+            src=""
+            alt="Profile picture"
+            class="profile-picture"
+            hidden
+        >
+
+        <div id="profileInitial" class="profile-initial">
+            ?
+        </div>
+
+        <form id="profileForm">
+
+            <label for="displayName">
+                Display Name
+            </label>
+
+            <input
+                type="text"
+                id="displayName"
+                placeholder="Enter your name"
+                maxlength="60"
+                required
+            >
+
+            <label for="profilePicture">
+                Profile Picture
+            </label>
+
+            <input
+                type="file"
+                id="profilePicture"
+                accept="image/jpeg,image/png,image/webp"
+            >
+
+            <p>
+                Choose a JPG, PNG or WebP image.
+                Maximum size: 3 MB.
+            </p>
+
+            <p id="profileEmail"></p>
+
+            <button type="submit">
+                Save Profile
+            </button>
+
+        </form>
+
+        <p id="profileMessage"></p>
+
+    </section>
+
+</main>
+
+<footer>
+    <p>School Event Hub &copy; 2026</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="supabase.js"></script>
+<script src="date-utils.js"></script>
+
+<script src="events-auth.js"></script>
+
+<script src="profile.js"></script>
+
+</body>
+</html>
