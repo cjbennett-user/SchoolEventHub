@@ -46,7 +46,7 @@ async function loadNotifications() {
         if (!notification.is_read) {
 
             const unread = document.createElement("strong");
-            unread.textContent = "New notification";
+            unread.textContent = "   New notification    ";
 
             const readButton = document.createElement("button");
 

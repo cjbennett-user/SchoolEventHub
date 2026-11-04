@@ -1,8 +1,4 @@
 
-// ========================================
-// SCHOOL EVENT HUB - EVENT DETAILS
-// ========================================
-
 
 // PAGE ELEMENTS
 
@@ -36,9 +32,9 @@ let isRegistered = false;
 let isPastEvent = false;
 
 
-// ========================================
+
 // DISPLAY EVENT INFORMATION
-// ========================================
+
 
 function displayEventInformation(event) {
 
@@ -160,9 +156,7 @@ function displayEventInformation(event) {
 }
 
 
-// ========================================
 // LOAD EVENT
-// ========================================
 
 async function loadEventDetails() {
 
@@ -276,9 +270,9 @@ async function loadEventDetails() {
 }
 
 
-// ========================================
+
 // CHECK REGISTRATION
-// ========================================
+
 
 async function checkRegistration() {
 
@@ -319,9 +313,8 @@ async function checkRegistration() {
 }
 
 
-// ========================================
 // REGISTER OR CANCEL REGISTRATION
-// ========================================
+
 
 registrationButton.addEventListener(
     "click",
@@ -438,10 +431,8 @@ registrationButton.addEventListener(
     }
 );
 
-
-// ========================================
 // EDIT EVENT
-// ========================================
+
 
 editButton.addEventListener("click", function() {
 
@@ -457,10 +448,8 @@ editButton.addEventListener("click", function() {
 
 });
 
-
-// ========================================
 // START PAGE
-// ========================================
+
 
 loadEventDetails().catch(function(error) {
 
