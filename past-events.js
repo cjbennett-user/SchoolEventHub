@@ -22,7 +22,7 @@ async function loadPastEvents() {
 
     const { data, error } = await supabaseClient
         .from("events")
-        .select("*")
+        .select("id, event_name, description, category, image_url, location, event_date, start_time")
         .lt("event_date", getLocalDate())
         .order("event_date", { ascending: false });
 
@@ -119,6 +119,7 @@ function displayPastEvents(events) {
             image.className = "event-image";
 
             image.loading = "lazy";
+            image.decoding = "async";
 
             card.appendChild(image);
 

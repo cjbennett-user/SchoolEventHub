@@ -45,7 +45,7 @@ loginForm.addEventListener("submit", async function(event) {
 
     setTimeout(function() {
 
-        window.location.href = "events.html";
+        window.location.href = "index.html";
 
     }, 1000);
 

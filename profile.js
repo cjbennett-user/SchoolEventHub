@@ -41,7 +41,7 @@ async function loadProfile() {
         await supabaseClient
             .from("profiles")
             .select("*")
-            .eq("user_id", currentUser.id)
+            .eq("id", currentUser.id)
             .maybeSingle();
 
     if (profileError) {
@@ -192,6 +192,8 @@ profileForm.addEventListener("submit", async function(event) {
         .from("profiles")
         .upsert({
 
+            id: currentUser.id,
+
             user_id: currentUser.id,
 
             display_name: displayName,
@@ -199,7 +201,7 @@ profileForm.addEventListener("submit", async function(event) {
             avatar_url: avatarUrl
 
         }, {
-            onConflict: "user_id"
+            onConflict: "id"
         });
 
     if (error) {

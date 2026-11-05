@@ -17,22 +17,23 @@
         <a href="index.html">Home</a>
         <a href="past-events.html">Past Events</a>
         <a href="events.html">Events</a>
+        <a href="create-event.html">Create Event</a>
         <a href="my-registrations.html">My Events</a>
-        <a href="profile.html">My Profile</a>
         <a href="notifications.html">
             Notifications <span id="notificationCount"></span>
         </a>
+        <a href="profile.html">My Profile</a>
         <button id="logoutButton">Logout</button>
     </nav>
 </header>
 
 <main class="events-container">
 
-    <h2>My Registered Events</h2>
+    <h2>Events I've Created</h2>
 
-    <p>Here you can see the events you have signed up for.</p>
+    <p>Here you can see and manage the events you have created.</p>
 
-    <div id="myEventsList">
+    <div id="myEventsList" class="events-grid">
         Loading your events...
     </div>
 
@@ -45,6 +46,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="supabase.js"></script>
 <script src="date-utils.js"></script>
+<script src="event-icons.js"></script>
 <script src="notification-count.js"></script>
 <script src="events-auth.js"></script>
 <script src="my-registrations.js"></script>

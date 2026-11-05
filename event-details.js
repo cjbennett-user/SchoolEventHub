@@ -36,7 +36,7 @@ let isPastEvent = false;
 // DISPLAY EVENT INFORMATION
 
 
-function displayEventInformation(event) {
+function displayEventInformation(event, creatorProfile) {
 
     eventDetails.replaceChildren();
 
@@ -86,6 +86,39 @@ function displayEventInformation(event) {
     title.textContent = event.event_name;
 
     eventDetails.appendChild(title);
+
+    const creator = document.createElement("div");
+    creator.className = "event-creator";
+
+    const creatorName =
+        creatorProfile?.display_name || "Event organizer";
+
+    if (creatorProfile?.avatar_url) {
+        const avatar = document.createElement("img");
+        avatar.src = creatorProfile.avatar_url;
+        avatar.alt = creatorName + "'s profile picture";
+        avatar.className = "event-creator-avatar";
+
+        avatar.addEventListener("error", function() {
+            const initial = document.createElement("span");
+            initial.className = "event-creator-initial";
+            initial.textContent = creatorName.charAt(0).toUpperCase();
+            avatar.replaceWith(initial);
+        }, { once: true });
+
+        creator.appendChild(avatar);
+    } else {
+        const initial = document.createElement("span");
+        initial.className = "event-creator-initial";
+        initial.textContent = creatorName.charAt(0).toUpperCase();
+        creator.appendChild(initial);
+    }
+
+    const creatorLabel = document.createElement("span");
+    creatorLabel.textContent = "Created by " + creatorName;
+    creator.appendChild(creatorLabel);
+
+    eventDetails.appendChild(creator);
 
 
     // DESCRIPTION
@@ -219,6 +252,23 @@ async function loadEventDetails() {
 
     currentEvent = data;
 
+    let creatorProfile = null;
+
+    if (data.created_by) {
+        const { data: profile, error: profileError } =
+            await supabaseClient
+                .from("event_creator_profiles")
+                .select("display_name, avatar_url")
+                .eq("user_id", data.created_by)
+                .maybeSingle();
+
+        if (profileError) {
+            console.error("Event creator profile loading error:", profileError);
+        } else {
+            creatorProfile = profile;
+        }
+    }
+
 
     // CHECK WHETHER EVENT IS IN THE PAST
 
@@ -228,7 +278,7 @@ async function loadEventDetails() {
 
     // DISPLAY EVENT
 
-    displayEventInformation(data);
+    displayEventInformation(data, creatorProfile);
 
 
     // CHECK EVENT OWNER
@@ -306,9 +356,8 @@ async function checkRegistration() {
 
     registrationButton.textContent = isRegistered
 
-        ? "Cancel Registration"
-
-        : "Register for Event";
+        ? "Cancel RSVP"
+        : "RSVP";
 
 }
 
@@ -373,7 +422,7 @@ registrationButton.addEventListener(
 
 
             registrationMessage.textContent =
-                "Your registration has been cancelled.";
+                "Your RSVP has been cancelled.";
 
         }
 
@@ -408,7 +457,7 @@ registrationButton.addEventListener(
 
 
             registrationMessage.textContent =
-                "You have successfully registered for this event!";
+                "Your RSVP was successful!";
 
 
             // REFRESH NOTIFICATION COUNTER

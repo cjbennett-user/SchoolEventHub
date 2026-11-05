@@ -21,14 +21,14 @@
     <a href="index.html">Home</a>
     <a href="past-events.html">Past Events</a>
     <a href="events.html">Events</a>
-    <a href="my-registrations.html">My Events</a>
     <a href="create-event.html">Create Event</a>
-    <a href="profile.html">My Profile</a>
+    <a href="my-registrations.html">My Events</a>
 
     <a href="notifications.html">
         Notifications
         <span id="notificationCount"></span>
     </a>
+    <a href="profile.html">My Profile</a>
 
     <button id="logoutButton">Logout</button>
 </nav>
@@ -119,20 +119,15 @@
 
             <br><br>
 
-            <label for="startTime">Start Time</label>
-            <input
-                type="time"
-                id="startTime"
-                required
-            >
+            <fieldset id="startTimePicker" class="time-picker">
+                <legend>Start Time</legend>
+            </fieldset>
 
             <br><br>
 
-            <label for="endTime">End Time</label>
-            <input
-                type="time"
-                id="endTime"
-            >
+            <fieldset id="endTimePicker" class="time-picker">
+                <legend>End Time</legend>
+            </fieldset>
 
             <br><br>
 
@@ -156,6 +151,7 @@
 <script src="supabase.js"></script>
 <script src="date-utils.js"></script>
 <script src="image-preview.js"></script>
+<script src="time-picker.js"></script>
 <script src="notification-count.js"></script>
 <script src="events-auth.js"></script>
 <script src="create-event.js"></script>

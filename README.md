@@ -1,1 +1,3 @@
 This was a class project to make a website for school events. this project involved needing a sql backend to hold usernames and passwords along with a good design for the webpage and multiple neccisary functions for website. to use the website you first must sign in or create a account. you can view current events or if there are no current events you can click on the past events at the top to see all the past events avalable.
+
+To have event creators' usernames appear before they manually save a profile, run [`supabase-auto-profile-setup.sql`](./supabase-auto-profile-setup.sql) in the Supabase SQL Editor. It creates profiles automatically on signup and backfills existing users from their signup username or email.

@@ -3,6 +3,9 @@ const eventForm = document.getElementById("eventForm");
 const eventDateInput =
     document.getElementById("eventDate");
 
+setupTimePicker("startTime", true);
+setupTimePicker("endTime", true);
+
 // Get today's date using the user's local timezone
 
 function getLocalDate() {
@@ -116,14 +119,20 @@ if (imageFile) {
         document.getElementById("eventDate").value;
 
     const startTime =
-        document.getElementById("startTime").value;
+        getTimePickerValue("startTime");
 
     const endTime =
-        document.getElementById("endTime").value || null;
+        getTimePickerValue("endTime");
 
     // Validate the time
 
-    if (endTime && endTime <= startTime) {
+    if (!startTime || !endTime) {
+        message.textContent =
+            "Please choose both a start time and an end time.";
+        return;
+    }
+
+    if (endTime <= startTime) {
         message.textContent =
             "End time must be later than start time.";
         return;

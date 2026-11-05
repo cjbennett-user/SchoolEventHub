@@ -18,8 +18,12 @@
         <a href="index.html">Home</a>
         <a href="past-events.html">Past Events</a>
         <a href="events.html">Events</a>
+        <a href="create-event.html">Create Event</a>
         <a href="my-registrations.html">My Events</a>
-        <a href="notifications.html">Notifications</a>
+        <a href="notifications.html">
+            Notifications <span id="notificationCount"></span>
+        </a>
+        <a href="profile.html">My Profile</a>
         <button id="logoutButton">Logout</button>
     </nav>
 </header>
@@ -27,6 +31,14 @@
 <main>
 
     <section class="events-container">
+
+        <h2>My RSVPs</h2>
+
+        <p>Events you have RSVP'd to.</p>
+
+        <div id="registeredEventsList" class="events-grid">
+            <p>Loading your RSVPs...</p>
+        </div>
 
         <h2>My Notifications</h2>
 
@@ -45,6 +57,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="supabase.js"></script>
 <script src="date-utils.js"></script>
+<script src="event-icons.js"></script>
 <script src="notification-count.js"></script>
 <script src="events-auth.js"></script>
 <script src="notifications.js"></script>

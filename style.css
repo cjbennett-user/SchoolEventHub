@@ -156,6 +156,35 @@ label {
     font-size: 14px;
 }
 
+.time-picker {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.time-picker legend {
+    padding: 0;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.time-picker-controls {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.time-picker-controls select {
+    min-width: 0;
+    margin-bottom: 0;
+}
+
+.time-picker-field {
+    font-weight: normal;
+    color: var(--muted);
+}
+
 /* HEADINGS */
 
 h2 {
@@ -261,6 +290,36 @@ h3 {
     font-size: 14px;
 }
 
+.event-creator {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 12px 0 18px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.event-creator-avatar,
+.event-creator-initial {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    flex: 0 0 40px;
+}
+
+.event-creator-avatar {
+    object-fit: cover;
+}
+
+.event-creator-initial {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #eeeaff;
+    color: var(--primary);
+    font-weight: bold;
+}
+
 .event-card button {
     margin: 5px 5px 5px 0;
 }
@@ -271,6 +330,11 @@ h3 {
 
 .event-card button:last-child:hover {
     background: #c94454;
+}
+
+.event-card button.rsvp-button,
+.event-card button.rsvp-button:hover {
+    background: var(--primary);
 }
 
 /* notifications */

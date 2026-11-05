@@ -4,6 +4,7 @@ const eventsList = document.getElementById("eventsList");
 const searchInput = document.getElementById("searchInput");
 
 let allEvents = [];
+let currentUser = null;
 //allEvents = data || [];
 
 
@@ -14,28 +15,33 @@ async function loadEvents() {
 
     eventsList.textContent = "Loading events...";
 
-    const { data, error } = await supabaseClient
-    .from("events")
-    .select("*")
-    .gte("event_date", getLocalDate())
-    .order("event_date", { ascending: true });
+    const [eventsResult, userResult] = await Promise.all([
+        supabaseClient
+            .from("events")
+            .select("id, event_name, description, category, image_url, location, event_date, start_time, created_by")
+            .gte("event_date", getLocalDate())
+            .order("event_date", { ascending: true }),
+        supabaseClient.auth.getUser()
+    ]);
 
-    if (error) {
+    if (eventsResult.error) {
 
-        eventsList.textContent = error.message;
+        eventsList.textContent = eventsResult.error.message;
 
         return;
     }
 
-    allEvents = data;
+    allEvents = eventsResult.data;
 
-    displayEvents(allEvents);
+    currentUser = userResult.data.user;
+
+    displayEvents(allEvents, userResult.data.user);
 }
 
 
 // DISPLAY EVENTS
 
-async function displayEvents(events) {
+function displayEvents(events, currentUser) {
 
 
     eventsList.replaceChildren();
@@ -46,11 +52,6 @@ async function displayEvents(events) {
 
         return;
     }
-
-    const { data: userData } =
-        await supabaseClient.auth.getUser();
-
-    const currentUser = userData.user;
 
     events.forEach(function(event) {
 
@@ -68,6 +69,7 @@ async function displayEvents(events) {
     image.className = "event-image";
 
     image.loading = "lazy";
+    image.decoding = "async";
 
     card.appendChild(image);
 
@@ -204,7 +206,7 @@ document.getElementById("searchInput")
 
         const filteredEvents = filterEvents(allEvents);
 
-        displayEvents(filteredEvents);
+        displayEvents(filteredEvents, currentUser);
 
     });
 function filterEvents(events) {
@@ -240,7 +242,7 @@ function filterEvents(events) {
 document.getElementById("categoryFilter")
     .addEventListener("change", function() {
 
-        displayEvents(filterEvents(allEvents));
+        displayEvents(filterEvents(allEvents), currentUser);
 
     });
 

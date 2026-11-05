@@ -7,6 +7,9 @@ const eventId = params.get("id");
 
 let originalEvent = null;
 
+setupTimePicker("startTime", true);
+setupTimePicker("endTime", true);
+
 
 // LOAD EXISTING EVENT
 
@@ -68,11 +71,8 @@ async function loadEvent() {
     document.getElementById("eventDate").value =
         data.event_date;
 
-    document.getElementById("startTime").value =
-        data.start_time;
-
-    document.getElementById("endTime").value =
-        data.end_time || "";
+    setTimePickerValue("startTime", data.start_time);
+    setTimePickerValue("endTime", data.end_time);
 
 }
 
@@ -98,12 +98,18 @@ editEventForm.addEventListener("submit", async function(event) {
         document.getElementById("eventDate").value;
 
     const startTime =
-        document.getElementById("startTime").value;
+        getTimePickerValue("startTime");
 
     const endTime =
-        document.getElementById("endTime").value || null;
+        getTimePickerValue("endTime");
 
-    if (endTime && endTime <= startTime) {
+    if (!startTime || !endTime) {
+        message.textContent =
+            "Please choose both a start time and an end time.";
+        return;
+    }
+
+    if (endTime <= startTime) {
         message.textContent =
             "End time must be later than start time.";
         return;

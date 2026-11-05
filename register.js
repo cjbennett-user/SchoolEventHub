@@ -32,7 +32,7 @@ registerForm.addEventListener("submit", async function(event) {
         message.textContent = "Account created successfully!";
 
         setTimeout(function() {
-            window.location.href = "events.html";
+            window.location.href = "profile.html";
         }, 1500);
 
     } else {
